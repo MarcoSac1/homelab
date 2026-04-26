@@ -1,0 +1,60 @@
+# === SEGRETI E VARIABILI ===
+.env
+*.env
+**/.env
+
+# === WIREGUARD (chiavi private) ===
+stacks/wireguard/wg-easy/wg0.conf
+stacks/wireguard/wg-easy/wg0.json
+
+# === PIHOLE (dati generati) ===
+dns/pihole/etc-pihole/gravity.db
+dns/pihole/etc-pihole/gravity_old.db
+dns/pihole/etc-pihole/pihole-FTL.db
+dns/pihole/etc-pihole/pihole-FTL.db-shm
+dns/pihole/etc-pihole/pihole-FTL.db-wal
+dns/pihole/etc-pihole/dhcp.leases
+dns/pihole/etc-pihole/cli_pw
+dns/pihole/etc-pihole/tls*
+dns/pihole/etc-pihole/gravity_backups/
+dns/pihole/etc-pihole/config_backups/
+dns/pihole/etc-pihole/listsCache/
+dns/pihole/etc-pihole/migration_backup/
+dns/pihole/etc-pihole/logrotate
+dns/pihole/etc-pihole/versions
+dns/pihole/etc-pihole/adlists.list
+dns/pihole/etc-pihole/dnsmasq.conf
+dns/pihole/etc-pihole/pihole.toml
+dns/pihole/etc-pihole/hosts/
+dns/pihole/etc-dnsmasq.d/
+dns/pihole/etc-pihole/custom.list
+
+# === AUTHENTIK (dati sensibili e backup) ===
+stacks/authentik/*.sql
+stacks/authentik/media/
+stacks/authentik/custom-templates/
+
+# === PORTAINER (dati interni) ===
+stacks/portainer/portainer-data/
+
+# === CERTIFICATI E CHIAVI ===
+*.crt
+*.pem
+*.key
+*.pub
+caddy-root.crt
+
+# === CADDY (dati generati) ===
+stacks/reverse-proxy/caddy/
+
+# === BACKUP ===
+*.tar.gz
+*.zip
+*.bak
+
+# === OLLAMA (modelli pesanti) ===
+stacks/ai/ollama/ollama-data/
+
+# === SISTEMA ===
+.DS_Store
+*.log

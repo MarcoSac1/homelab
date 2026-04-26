@@ -1,0 +1,25 @@
+services:
+  wg-easy:
+    image: ghcr.io/wg-easy/wg-easy
+    container_name: homelab-wireguard
+    environment:
+      - WG_HOST=79.55.108.189
+      - PASSWORD_HASH=$$2a$$12$$XpYJhCmOuDugaxt9FBcrJuiS8ThGg32gT9mt4E8DZ4JudQH.487GG
+      - WG_PORT=1194
+      - PORT=51821
+      - INSECURE=true
+      - WG_DEFAULT_DNS=192.168.1.50
+      - WG_DEFAULT_ADDRESS=10.8.0.x
+      - WG_ALLOWED_IPS=10.8.0.0/24,192.168.1.0/24
+      - WG_MTU=1420
+    volumes:
+      - ./wg-easy:/etc/wireguard
+    ports:
+      - "1194:1194/udp"
+      - "51821:51821/tcp"
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1

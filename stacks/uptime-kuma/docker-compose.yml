@@ -1,0 +1,26 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime-kuma-data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "/app/server/server.js", "--check"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - default
+      - authentik_default
+
+volumes:
+  uptime-kuma-data:
+
+networks:
+  default: {}
+  authentik_default:
+    external: true

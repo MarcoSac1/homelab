@@ -1,0 +1,31 @@
+{
+    # Disabilita solo Let's Encrypt, NON TLS interno
+    local_certs
+    skip_install_trust
+}
+
+openwebui.home.arpa {
+    tls internal
+
+    reverse_proxy open-webui:8080 {
+        flush_interval -1
+        header_up Upgrade {http.request.header.Upgrade}
+        header_up Connection {http.request.header.Connection}
+    }
+    header {
+        Cache-Control "no-cache, no-transform"
+        X-Accel-Buffering "no"
+    }
+}
+
+portainer.home.arpa {
+    tls internal
+    reverse_proxy homelab-portainer:9000
+}
+
+ollama.home.arpa {
+    tls internal
+    reverse_proxy ollama:11434 {
+        flush_interval -1
+    }
+}

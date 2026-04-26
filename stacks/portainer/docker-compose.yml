@@ -1,0 +1,18 @@
+# ~/homelab/stacks/portainer/docker-compose.yml
+version: '3.8'
+
+services:
+  homelab-portainer:
+    image: portainer/portainer-ce:latest
+    container_name: homelab-portainer
+    # NIENTE ports: qui; Portainer vive solo in rete Docker
+    command: -H unix:///var/run/docker.sock
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer-data:/data
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
