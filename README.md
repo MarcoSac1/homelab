@@ -1,4 +1,5 @@
-''' # 🏠 Homelab Infrastructure
+''' 
+# 🏠 Homelab Infrastructure
 
 Infrastruttura modulare e sicura per un piccolo gruppo di utenti (3–4 persone), costruita su Ubuntu con Docker Compose. Tutti i servizi interni sono accessibili esclusivamente tramite autenticazione centralizzata con **Authentik** (SSO via OpenID Connect / OAuth2), senza esporre nulla direttamente su Internet.
 
