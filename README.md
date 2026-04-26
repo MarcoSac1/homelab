@@ -3,8 +3,7 @@ Infrastruttura modulare e sicura per un piccolo gruppo di utenti (3–4 persone)
 
 L'accesso remoto avviene tramite WireGuard VPN. Ogni utente, una volta autenticato, può accedere solo ai servizi e alle risorse previste dal proprio ruolo.
 
-🗂️ Struttura del Repository
-text
+```
 homelab/
 ├── README.md
 ├── dns/
@@ -28,10 +27,7 @@ homelab/
     └── reverse-proxy/
         ├── docker-compose.yml
         └── Caddyfile
-        
-
----
-
+```
 ## 🧩 Servizi
 
 | Servizio | Immagine | Scopo |
