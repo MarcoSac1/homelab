@@ -149,25 +149,4 @@ cd ../ai/ollama       && docker compose up -d
 cd ../ai/open-webui   && docker compose up -d
 cd ../../dns/pihole   && docker compose up -d
 ```
-
----
-
-## 🔒 Sicurezza
-
-- **SSH**: solo chiavi pubbliche (`PasswordAuthentication no`)
-- **WireGuard**: unico ingresso remoto, nessun servizio esposto direttamente su Internet
-- **Caddy**: HTTPS automatico su tutti i servizi interni
-- **Authentik**: nessun servizio raggiungibile senza autenticazione SSO
-- **Segreti**: nessuna password nel repository, solo `.env.example`
-- **Firewall UFW**: `22/tcp`, `80/tcp`, `443/tcp`, `1194/udp`, `51821/tcp`
-
----
-
-## 🚀 Implementazioni Future
-
-- **Ambienti di ricerca isolati**: ogni studente potrà deployare container dedicati per ricerche OSINT, analisi dati, scraping o test di sicurezza in sandbox, gestiti autonomamente tramite Portainer
-- **Isolamento rete**: ogni ambiente di ricerca su rete Docker dedicata, separata dai servizi di sistema
-- **Autenticazione granulare**: estensione delle policy Authentik per accesso a specifici ambienti per singolo utente
-- **Logging centralizzato**: stack Loki/Grafana o ELK per raccogliere log di tutti i container
-- **Backup automatico**: schedulazione periodica di backup del database Authentik e dei volumi critici
 '''
